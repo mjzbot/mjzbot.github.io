@@ -1,0 +1,451 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><html><head>
+<link rel="icon" data-savepage-href="" href="data:image/vnd.microsoft.icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD9/f0A/f39AP39/QD///8A////AP///wD///8A////AP///wD///8A////AOnp5y/MysZ+09LOfOfm5S708/I19vX0K/n4+CP9/PwP/f39AP///wD///8A////AP///wD///8A////AP///wDMysZ139/dLuHg3VrR0MyLxsK+nObl5Cvx8fAV7uzrR/39/QD///8A////AP///wD///8A////AP///wD///8A/f38A/Ly8S/8/PwH8/PyH8bDv6efmpP9t7Ks6ujm5Gv9/f0A////AP///wD///8A////AP///wD///8A7u3tHf///wD4+PgFm5eVeczKyU+zrquTaWNc9qeinP+5trDH9vb2CfT08wz8/PwA////AP///wD///8A9/b2BpOOjJzn5eQZVk5IyS8mIP1XTUj9c2lj3cG+uprPzcmqtbKs/Xpwa+BVUEzewb27SP///wD///8A////AL+8uktSSkXtVkxH1DUoIf81KSL/ubKvz/j49xnl4d5P/Pv7DM3JxbbZ1dNyXFVP/UtBO9n6+fkD/f39AP///wCIgX2QNSkj/1BFQP9BMy3/Wk9I+Pf29R7U085x2dHK6Pz8/A/l4+B87ezqOI6Hg802KSL9nJiUf+zr6xL8/PwAZFtVwDotJv9cUEr/VklC/52VkbL9/f0A1NLQmPDv7mT9/f0A39rXoff29RW2sK2HQTMt/0U7NfbMycc8/Pv7DE9FP9o7Lif/Rzoz/29kXvbPy8iG////AOzr6kna1tSb2tbUjujl42f9/f0Av7q3eVRGQP9BNjD/uLSyVfz7+wmtqKSFfnZwz6Obl7nb2ddZ+Pj4DP///wD///8A+Pf3Evv6+gr8/PwA////AMbBvopnWlT9PC8o/7axr1r///8A////AP39/QD39/YV+vr6Cf///wD///8A////AP///wD///8A////AP///wDz8vEvlo2IyFJGQfrT0c9E////AP///wD9/f0A/f39AP///wD///8A////AP///wD///8A////AP///wD///8A/f39APb19B729vUZ/f39AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A//8AAP//AAD//wAA/P8AAP4/AAD+HwAA0AcAAMHTAACDcwAAgtEAAIM5AACP8QAA//kAAP//AAD//wAA//8AAA==">
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+  <title>Clang - Getting Started</title>
+  <style data-savepage-href="menu.css" type="text/css">/***************/
+/* page layout */
+/***************/
+
+[id=menu] {
+	width:25ex;
+	float:left;
+}
+[id=content] {
+	/* *****  EDIT THIS VALUE IF CONTENT OVERLAPS MENU ***** */
+	margin-left:29ex;
+	padding-right:4ex;
+	word-wrap: break-word;
+}
+
+/**************/
+/* menu style */
+/**************/
+
+#menu .submenu {
+	padding-top:1em;
+	display:block;
+}
+
+#menu label {
+	display:block;
+	font-weight: bold;
+	text-align: center;
+	background-color: rgb(192,192,192);
+}
+#menu a {
+	padding:0 .2em;
+	display:block;
+	text-align: center;
+	background-color: rgb(235,235,235);
+}
+#menu a:visited {
+	color:rgb(100,50,100);
+}
+</style>
+  <style data-savepage-href="content.css" type="text/css">html { margin: 0px; } body { margin: 8px; }
+
+html, body {
+  padding:0px;
+  font-size:small; font-family:"Lucida Grande", "Lucida Sans Unicode", Arial, Verdana, Helvetica, sans-serif; background-color: #fff; color: #222;
+  line-height:1.5;
+}
+
+h1, h2, h3, tt { color: #000 }
+
+h1 { padding-top:0px; margin-top:0px;}
+h2 { color:#333333; padding-top:0.5em; }
+h3 { padding-top: 0.5em; margin-bottom: -0.25em; color:#2d58b7}
+li { padding-bottom: 0.5em; }
+ul { padding-left:1.5em; }
+
+/* Slides */
+IMG.img_slide {
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+}
+
+.itemTitle { color:#2d58b7 }
+
+span.error { color:red }
+span.warning { color:purple }
+span.note { color:gray }
+span.caret { color:green; font-weight:bold }
+span.template-highlight { color:cyan }
+
+/* Tables */
+tr { vertical-align:top }
+</style>
+
+<style id="savepage-cssvariables">
+  :root {
+  }
+</style>
+<script id="savepage-shadowloader" type="application/javascript">
+  "use strict";
+  window.addEventListener("DOMContentLoaded",
+  function(event) {
+    savepage_ShadowLoader(5);
+  },false);
+  function savepage_ShadowLoader(c){createShadowDOMs(0,document.documentElement);function createShadowDOMs(a,b){var i;if(b.localName=="iframe"||b.localName=="frame"){if(a<c){try{if(b.contentDocument.documentElement!=null){createShadowDOMs(a+1,b.contentDocument.documentElement)}}catch(e){}}}else{if(b.children.length>=1&&b.children[0].localName=="template"&&b.children[0].hasAttribute("data-savepage-shadowroot")){b.attachShadow({mode:"open"}).appendChild(b.children[0].content);b.removeChild(b.children[0]);for(i=0;i<b.shadowRoot.children.length;i++)if(b.shadowRoot.children[i]!=null)createShadowDOMs(a,b.shadowRoot.children[i])}for(i=0;i<b.children.length;i++)if(b.children[i]!=null)createShadowDOMs(a,b.children[i])}}}
+</script>
+<meta name="savepage-url" content="https://clang.llvm.org/get_started.html">
+<meta name="savepage-title" content="Clang - Getting Started">
+<meta name="savepage-from" content="https://clang.llvm.org/get_started.html">
+<meta name="savepage-date" content="Wed Apr 07 2021 23:49:16 GMT-0400 (Eastern Daylight Time)">
+<meta name="savepage-state" content="Standard Items; Retain cross-origin frames; Merge CSS images; Remove unsaved URLs; Load lazy images in existing content; Max frame depth = 5; Max resource size = 50MB; Max resource time = 10s;">
+<meta name="savepage-version" content="25.5">
+<meta name="savepage-comments" content="">
+  </head>
+<body data-new-gr-c-s-check-loaded="14.1004.0" data-gr-ext-installed="">
+
+<div id="menu">
+  <div>
+    <a href="http://llvm.org/">LLVM Home</a>
+  </div>
+
+  <div class="submenu">
+    <label>Clang Info</label>
+    <a href="http://llvm.org/releases/download.html">Download</a>
+    <a data-savepage-href="/index.html" href="https://clang.llvm.org/index.html">About</a>
+    <a data-savepage-href="/features.html" href="https://clang.llvm.org/features.html">Features</a>
+    <a data-savepage-href="/related.html" href="https://clang.llvm.org/related.html">Related Projects</a>
+    <a data-savepage-href="/docs/UsersManual.html" href="https://clang.llvm.org/docs/UsersManual.html">User's Manual</a>
+    <a data-savepage-href="/compatibility.html" href="https://clang.llvm.org/compatibility.html">Language Compatibility</a>
+    <a data-savepage-href="/docs/LanguageExtensions.html" href="https://clang.llvm.org/docs/LanguageExtensions.html">Language Extensions</a>
+    <a data-savepage-href="/cxx_status.html" href="https://clang.llvm.org/cxx_status.html">C++ Status</a>
+  </div>
+
+  <div class="submenu">
+    <label>Clang Development</label>
+    <a data-savepage-href="/get_started.html" href="https://clang.llvm.org/get_started.html">Get Started</a>
+    <a data-savepage-href="/get_involved.html" href="https://clang.llvm.org/get_involved.html">Get Involved</a>
+    <a data-savepage-href="/OpenProjects.html" href="https://clang.llvm.org/OpenProjects.html">Open Projects</a>
+    <a data-savepage-href="/docs/InternalsManual.html" href="https://clang.llvm.org/docs/InternalsManual.html">Clang Internals</a>
+    <a data-savepage-href="/hacking.html" href="https://clang.llvm.org/hacking.html">Hacking on Clang</a>
+  </div>
+
+  <div class="submenu">
+    <label>Clang Tools</label>
+    <a data-savepage-href="http://clang-analyzer.llvm.org" href="http://clang-analyzer.llvm.org/">Automatic Bug-Finding</a>
+    <a data-savepage-href="/docs/Tooling.html" href="https://clang.llvm.org/docs/Tooling.html">Writing Clang Tools</a>
+  </div>
+
+  <div class="submenu">
+    <label>Communication</label>
+    <a href="http://lists.llvm.org/mailman/listinfo/cfe-users">cfe-users List</a>
+    <a href="http://lists.llvm.org/mailman/listinfo/cfe-dev">cfe-dev List</a>
+    <a href="http://lists.llvm.org/mailman/listinfo/cfe-commits">cfe-commits List</a>
+    <a href="https://bugs.llvm.org/">Bug Reports</a>
+    <a href="http://planet.clang.org/">Planet Clang</a>
+    <a href="irc://irc.oftc.net/llvm">IRC: irc.oftc.net#llvm</a>
+  </div>
+
+  <div class="submenu">
+    <label>The Code</label>
+    <a data-savepage-href="/get_started.html#build" href="#build">Check Out Sources</a>
+    <a href="https://github.com/llvm/llvm-project/tree/main/clang/">Browse Sources</a>
+    <a href="http://clang.llvm.org/doxygen/">doxygen</a>
+  </div>
+
+  <div class="submenu">
+    <label>Quick Links</label>
+    <a href="http://llvm.org/reports/coverage/">Testing Coverage</a>
+  </div>
+
+  <div class="submenu">
+    <label>Clang Events</label>
+    <a href="http://llvm.org/devmtg/">LLVM Meeting</a>
+  </div>
+
+</div>
+
+
+<div id="content">
+
+<h1>Getting Started: Building and Running Clang</h1>
+
+<p>This page gives you the shortest path to checking out Clang and demos a few
+options.  This should get you up and running with the minimum of muss and fuss.
+If you like what you see, please consider <a data-savepage-href="get_involved.html" href="https://clang.llvm.org/get_involved.html">getting
+involved</a> with the Clang community.  If you run into problems, please file
+bugs in <a href="https://bugs.llvm.org/">LLVM Bugzilla</a>.</p>
+
+<h2 id="download">Release Clang Versions</h2>
+
+<p>Clang is released as part of regular LLVM releases. You can download the release versions from <a href="https://llvm.org/releases/">https://llvm.org/releases/</a>.</p>
+<p>Clang is also provided in all major BSD or GNU/Linux distributions as part of their respective packaging systems. From Xcode 4.2, Clang is the default compiler for Mac OS X.</p>
+
+<h2 id="build">Building Clang and Working with the Code</h2>
+
+<h3 id="buildNix">On Unix-like Systems</h3>
+
+<p>If you would like to check out and build Clang, the current procedure is as
+follows:</p>
+
+<ol>
+  <li>Get the required tools.
+  <ul>
+    <li>See
+      <a href="https://llvm.org/docs/GettingStarted.html#requirements">
+      Getting Started with the LLVM System - Requirements</a>.</li>
+    <li>Note also that Python is needed for running the test suite.
+      Get it at: <a href="https://www.python.org/downloads/">
+      https://www.python.org/downloads/</a></li>
+    <li>Standard build process uses CMake. Get it at:
+      <a href="https://cmake.org/download/">
+      https://cmake.org/download/</a></li>
+  </ul>
+
+  </li><li>Check out the LLVM project:
+  <ul>
+    <li>Change directory to where you want the llvm directory placed.</li>
+    <li><tt>git clone https://github.com/llvm/llvm-project.git</tt></li>
+  </ul>
+  </li>
+  <li>Build LLVM and Clang:
+  <ul>
+    <li><tt>cd llvm-project</tt></li>
+    <li><tt>mkdir build</tt> (in-tree build is not supported)</li>
+    <li><tt>cd build</tt></li>
+    <li><tt>cmake -DLLVM_ENABLE_PROJECTS=clang -G "Unix Makefiles" ../llvm</tt></li>
+    <li><tt>make</tt></li>
+    <li>This builds both LLVM and Clang for debug mode.</li>
+    <li>Note: For subsequent Clang development, you can just run
+        <tt>make clang</tt>.</li>
+    <li>CMake allows you to generate project files for several IDEs: Xcode,
+        Eclipse CDT4, CodeBlocks, Qt-Creator (use the CodeBlocks generator),
+        KDevelop3. For more details see
+        <a href="https://llvm.org/docs/CMake.html">Building LLVM with CMake</a>
+        page.</li>
+  </ul>
+  </li>
+
+  <li>If you intend to use Clang's C++ support, you may need to tell it how
+      to find your C++ standard library headers. In general, Clang will detect
+      the best version of libstdc++ headers available and use them - it will
+      look both for system installations of libstdc++ as well as installations
+      adjacent to Clang itself. If your configuration fits neither of these
+      scenarios, you can use the <tt>-DGCC_INSTALL_PREFIX</tt> cmake option
+      to tell Clang where the gcc containing the desired libstdc++ is installed.
+  </li>
+  <li>Try it out (assuming you add llvm/build/bin to your path):
+  <ul>
+    <li><tt>clang --help</tt></li>
+    <li><tt>clang file.c -fsyntax-only</tt> (check for correctness)</li>
+    <li><tt>clang file.c -S -emit-llvm -o -</tt> (print out unoptimized llvm code)</li>
+    <li><tt>clang file.c -S -emit-llvm -o - -O3</tt></li>
+    <li><tt>clang file.c -S -O3 -o -</tt> (output native machine code)</li>
+  </ul>
+  </li>
+  <li>Run the testsuite:
+  <ul>
+    <li><tt>make check-clang</tt></li>
+  </ul>
+  </li>
+</ol>
+
+<h3 id="buildWindows">Using Visual Studio</h3>
+
+<p>The following details setting up for and building Clang on Windows using
+Visual Studio:</p>
+
+<ol>
+  <li>Get the required tools:
+  <ul>
+    <li><b>Git</b>.  Source code control program.  Get it from:
+        <a href="https://git-scm.com/download">
+        https://git-scm.com/download</a></li>
+    <li><b>CMake</b>.  This is used for generating Visual Studio solution and
+        project files.  Get it from:
+        <a href="https://cmake.org/download/">
+        https://cmake.org/download/</a></li>
+    <li><b>Visual Studio 2017 or later</b></li>
+    <li><b>Python</b>.  It is used to run the clang test suite. Get it from:
+        <a href="https://www.python.org/download/">
+        https://www.python.org/download/</a></li>
+    <li><b>GnuWin32 tools</b>
+        The Clang and LLVM test suite use various GNU core utilities, such as
+        <tt>grep</tt>, <tt>sed</tt>, and <tt>find</tt>. The gnuwin32 packages
+        are the oldest and most well-tested way to get these tools. However, the
+        MSys utilities provided by git for Windows have been known to work.
+        Cygwin has worked in the past, but is not well tested.
+        If you don't already have the core utilies from some other source, get
+        gnuwin32 from <a href="http://getgnuwin32.sourceforge.net/">
+        http://getgnuwin32.sourceforge.net/</a>.</li>
+  </ul>
+  </li>
+
+  <li>Check out LLVM and Clang:
+  <ul>
+    <li><tt>git clone https://github.com/llvm/llvm-project.git</tt></li>
+  </ul>
+  <p><em>Note</em>: Some Clang tests are sensitive to the line endings.  Ensure
+     that checking out the files does not convert LF line endings to CR+LF.  If
+     you're using git on Windows, make sure your <tt>core.autocrlf</tt> setting
+     is false.</p>
+  </li>
+  <li>Run CMake to generate the Visual Studio solution and project files:
+  <ul>
+    <li><tt>cd ..\..</tt>  (back to where you started)</li>
+    <li><tt>mkdir build</tt> (for building without polluting the source dir)</li>
+    <li><tt>cd build</tt></li>
+    <li>
+      If you are using Visual Studio 2017:
+      <tt>cmake -DLLVM_ENABLE_PROJECTS=clang -G "Visual Studio 15 2017" -A x64 -Thost=x64 ..\llvm</tt><br>
+      <tt>-Thost=x64</tt> is required, since the 32-bit linker will run out of memory.
+    </li>
+    <li>To generate x86 binaries instead of x64, pass <tt>-A Win32</tt>.</li>
+    <li>See the <a href="https://www.llvm.org/docs/CMake.html">LLVM CMake guide</a> for
+        more information on other configuration options for CMake.</li>
+    <li>The above, if successful, will have created an LLVM.sln file in the
+       <tt>build</tt> directory.
+  </li></ul>
+  </li>
+  <li>Build Clang:
+  <ul>
+    <li>Open LLVM.sln in Visual Studio.</li>
+    <li>Build the "clang" project for just the compiler driver and front end, or
+      the "ALL_BUILD" project to build everything, including tools.</li>
+  </ul>
+  </li>
+  <li>Try it out (assuming you added llvm/debug/bin to your path).  (See the
+    running examples from above.)</li>
+  <li>See <a data-savepage-href="hacking.html#testingWindows" href="https://clang.llvm.org/hacking.html#testingWindows">
+     Hacking on clang - Testing using Visual Studio on Windows</a> for information
+     on running regression tests on Windows.</li>
+</ol>
+
+<h3 id="buildWindowsNinja">Using Ninja alongside Visual Studio</h3>
+
+<p>We recommend that developers who want the fastest incremental builds use the
+<a href="https://ninja-build.org/">Ninja build system</a>. You can use the
+generated Visual Studio project files to edit Clang source code and generate a
+second build directory next to it for running the tests with these steps:</p>
+
+<ol>
+  <li>Check out clang and LLVM as described above</li>
+  <li>Open a developer command prompt with the appropriate environment.
+    <ul>
+      <li>If you open the start menu and search for "Command Prompt", you should
+        see shortcuts created by Visual Studio to do this. To use native x64
+        tools, choose the one titled "x64 Native Tools Command Prompt for VS
+        2017".</li>
+      <li> Alternatively, launch a regular <tt>cmd</tt> prompt and run the
+        appropriate vcvarsall.bat incantation. To get the 2017 x64 tools, this
+        would be:<br>
+        <tt>"C:\Program Files (x86)\Microsoft Visual
+          Studio\2017\Community\VC\Auxiliary\Build\vcvarsall.bat" x64</tt>
+      </li>
+    </ul>
+  </li>
+  <li><tt>mkdir build_ninja</tt> (or <tt>build</tt>, or use your own
+    organization)</li>
+  <li><tt>cd build_ninja</tt></li>
+  <li><tt>set CC=cl</tt> (necessary to force CMake to choose MSVC over mingw GCC
+    if you have it installed)</li>
+  <li><tt>set CXX=cl</tt></li>
+  <li><tt>cmake -GNinja ..\llvm</tt></li>
+  <li><tt>ninja clang</tt> This will build just clang.</li>
+  <li><tt>ninja check-clang</tt> This will run the clang tests.</li>
+</ol>
+
+<h2 id="driver">Clang Compiler Driver (Drop-in Substitute for GCC)</h2>
+
+<p>The <tt>clang</tt> tool is the compiler driver and front-end, which is
+designed to be a drop-in replacement for the <tt>gcc</tt> command.  Here are
+some examples of how to use the high-level driver:
+</p>
+
+<pre class="code">$ <b>cat t.c</b>
+#include &lt;stdio.h&gt;
+int main(int argc, char **argv) { printf("hello world\n"); }
+$ <b>clang t.c</b>
+$ <b>./a.out</b>
+hello world
+</pre>
+
+<p>The 'clang' driver is designed to work as closely to GCC as possible to
+  maximize portability.  The only major difference between the two is that
+  Clang defaults to gnu99 mode while GCC defaults to gnu89 mode.  If you see
+  weird link-time errors relating to inline functions, try passing -std=gnu89
+  to clang.</p>
+
+<h2>Examples of using Clang</h2>
+
+<!-- Thanks to
+ http://shiflett.org/blog/2006/oct/formatting-and-highlighting-php-code-listings
+Site suggested using pre in CSS, but doesn't work in IE, so went for the <pre>
+tag. -->
+
+<pre class="code">$ <b>cat ~/t.c</b>
+typedef float V __attribute__((vector_size(16)));
+V foo(V a, V b) { return a+b*a; }
+</pre>
+
+
+<h3>Preprocessing:</h3>
+
+<pre class="code">$ <b>clang ~/t.c -E</b>
+# 1 "/Users/sabre/t.c" 1
+
+typedef float V __attribute__((vector_size(16)));
+
+V foo(V a, V b) { return a+b*a; }
+</pre>
+
+
+<h3>Type checking:</h3>
+
+<pre class="code">$ <b>clang -fsyntax-only ~/t.c</b>
+</pre>
+
+
+<h3>GCC options:</h3>
+
+<pre class="code">$ <b>clang -fsyntax-only ~/t.c -pedantic</b>
+/Users/sabre/t.c:2:17: <span style="color:magenta">warning:</span> extension used
+<span style="color:darkgreen">typedef float V __attribute__((vector_size(16)));</span>
+<span style="color:blue">                ^</span>
+1 diagnostic generated.
+</pre>
+
+
+<h3>Pretty printing from the AST:</h3>
+
+<p>Note, the <tt>-cc1</tt> argument indicates the compiler front-end, and
+not the driver, should be run. The compiler front-end has several additional
+Clang specific features which are not exposed through the GCC compatible driver
+interface.</p>
+
+<pre class="code">$ <b>clang -cc1 ~/t.c -ast-print</b>
+typedef float V __attribute__(( vector_size(16) ));
+V foo(V a, V b) {
+   return a + b * a;
+}
+</pre>
+
+
+<h3>Code generation with LLVM:</h3>
+
+<pre class="code">$ <b>clang ~/t.c -S -emit-llvm -o -</b>
+define &lt;4 x float&gt; @foo(&lt;4 x float&gt; %a, &lt;4 x float&gt; %b) {
+entry:
+         %mul = mul &lt;4 x float&gt; %b, %a
+         %add = add &lt;4 x float&gt; %mul, %a
+         ret &lt;4 x float&gt; %add
+}
+$ <b>clang -fomit-frame-pointer -O3 -S -o - t.c</b> <i># On x86_64</i>
+...
+_foo:
+Leh_func_begin1:
+	mulps	%xmm0, %xmm1
+	addps	%xmm1, %xmm0
+	ret
+Leh_func_end1:
+</pre>
+
+</div>
+
+
+</body></html>
