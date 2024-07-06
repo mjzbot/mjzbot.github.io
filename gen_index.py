@@ -2,8 +2,8 @@ import os
 import datetime
 
 def create_index_html(folder_path):
-    # List all HTML files in the folder
-    files = [f for f in os.listdir(folder_path) if f.endswith('.html')]
+    # List all HTML files in the folder, excluding 'index.html'
+    files = [f for f in os.listdir(folder_path) if f.endswith('.html') and f.lower() != 'index.html']
     
     # Retrieve creation dates for the files
     files_with_dates = []
@@ -68,5 +68,5 @@ def create_index_html(folder_path):
         file.write(html_content)
 
 # Example usage
-create_index_html('.')
+create_index_html('.')  # Uses the current directory
 
