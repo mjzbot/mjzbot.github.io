@@ -2,7 +2,7 @@
 fileName=$(ls -1rt ~/Downloads/*.html | tail -n1)
 cp "$fileName" ~/repos/mjzbot.github.io/
 cd ~/repos/mjzbot.github.io/
-python gen_index.py
+python3 gen_index.py
 git add -A
 git commit -m "auto" --quiet
 git push myrepo --quiet
